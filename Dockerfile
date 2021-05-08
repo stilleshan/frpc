@@ -4,6 +4,12 @@ MAINTAINER Stille <stille@ioiox.com>
 WORKDIR /
 ENV FRP_VERSION 0.36.2
 
+RUN set -xe && \
+    apk add tzdata && \
+    cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
+    echo "Asia/Shanghai" > /etc/timezone && \
+    apk del tzdata
+
 RUN set -x && \
 	wget --no-check-certificate https://github.com/fatedier/frp/releases/download/v${FRP_VERSION}/frp_${FRP_VERSION}_linux_amd64.tar.gz && \ 
 	tar xzf frp_${FRP_VERSION}_linux_amd64.tar.gz && \
