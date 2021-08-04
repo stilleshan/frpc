@@ -1,8 +1,9 @@
 name: "build for docker"
 
-# on: [push]
 on:
-  workflow_dispatch:
+  push:
+    paths:
+      - 'Dockerfile'
 
 jobs:
   build:
@@ -38,3 +39,10 @@ jobs:
           --file ./Dockerfile . \
           --tag $(echo "${DOCKER_USERNAME}" | tr '[:upper:]' '[:lower:]')/${{ github.event.repository.name }}:latest \
           --tag $(echo "${DOCKER_USERNAME}" | tr '[:upper:]' '[:lower:]')/${{ github.event.repository.name }}:${TAG}
+      - name: Sync README.md
+        uses: ms-jpq/sync-dockerhub-readme@v1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          repository: ${{ secrets.DOCKER_USERNAME }}/${{ github.event.repository.name }}
+          readme: "README.md"
