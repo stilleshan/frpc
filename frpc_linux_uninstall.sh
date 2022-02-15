@@ -19,6 +19,7 @@ FRP_PATH=/usr/local/frp
 
 # 停止frpc
 sudo systemctl stop ${FRP_NAME}
+sudo systemctl disable ${FRP_NAME}
 # 删除frpc
 rm -rf ${FRP_PATH}
 # 删除frpc.service
