@@ -63,10 +63,14 @@ PROXY_HTTP_CODE=$(curl -o /dev/null --connect-timeout 5 --max-time 8 -s --head -
 # check arch
 if [ $(uname -m) = "x86_64" ]; then
     PLATFORM=amd64
-fi
-
-if [ $(uname -m) = "aarch64" ]; then
+elif [ $(uname -m) = "aarch64" ]; then
     PLATFORM=arm64
+elif [ $(uname -m) = "armv7" ]; then
+    PLATFORM=arm
+elif [ $(uname -m) = "armv7l" ]; then
+    PLATFORM=arm
+elif [ $(uname -m) = "armhf" ]; then
+    PLATFORM=arm
 fi
 
 FILE_NAME=frp_${FRP_VERSION}_linux_${PLATFORM}
