@@ -12,7 +12,7 @@ Font="\033[0m"
 # variable
 WORK_PATH=$(dirname $(readlink -f $0))
 FRP_NAME=frpc
-FRP_VERSION=0.51.1
+FRP_VERSION=0.51.2
 FRP_PATH=/usr/local/frp
 PROXY_URL="https://ghproxy.com/"
 
