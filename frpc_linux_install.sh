@@ -105,13 +105,13 @@ transport.tls.enable = false
 udpPacketSize = 1500
 
 
-[[web1_443]]
+[[proxies]]
 name = "web1_443"
 type = "tcp"
 localIP = "127.0.0.1"
 localPort = 443
 remotePort = 14443
-[[web1_443u]]
+[[proxies]]
 name = "web1_443"
 type = "udp"
 localIP = "127.0.0.1"
