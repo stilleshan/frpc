@@ -1,0 +1,24 @@
+serverAddr = "1.2.3.4"
+serverPort = 7000
+auth.method = "token"
+auth.token = "123456"
+transport.poolCount = 200
+transport.tcpMux = true
+transport.tcpMuxKeepaliveInterval = 60
+transport.protocol = "tcp"
+transport.tls.enable = false
+udpPacketSize = 1500
+
+
+[[web1_443]]
+name = "web1_443"
+type = "tcp"
+localIP = "127.0.0.1"
+localPort = 443
+remotePort = 14443
+[[web1_443u]]
+name = "web1_443"
+type = "udp"
+localIP = "127.0.0.1"
+localPort = 443
+remotePort = 14443
