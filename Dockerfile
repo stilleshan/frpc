@@ -1,7 +1,7 @@
 FROM alpine:3.8
 LABEL maintainer="Stille <stille@ioiox.com>"
 
-ENV VERSION 0.54.0
+ENV VERSION 0.55.1
 ENV TZ=Asia/Shanghai
 WORKDIR /
 

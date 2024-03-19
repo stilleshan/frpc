@@ -1,24 +1,25 @@
-serverAddr = "1.2.3.4"
+serverAddr = "frp.freefrp.net"
 serverPort = 7000
 auth.method = "token"
-auth.token = "123456"
-transport.poolCount = 200
-transport.tcpMux = true
-transport.tcpMuxKeepaliveInterval = 60
-transport.protocol = "tcp"
-transport.tls.enable = false
-udpPacketSize = 1500
-
+auth.token = "freefrp.net"
 
 [[proxies]]
-name = "web1_443"
+name = "web1_xxxxx"
+type = "http"
+localIP = "192.168.1.2"
+localPort = 5000
+customDomains = ["nas.yourdomain.com"]
+
+[[proxies]]
+name = "web2_xxxxx"
+type = "https"
+localIP = "192.168.1.2"
+localPort = 5001
+customDomains = ["nas.yourdomain.com"]
+
+[[proxies]]
+name = "tcp1_xxxxx"
 type = "tcp"
-localIP = "127.0.0.1"
-localPort = 443
-remotePort = 14443
-[[proxies]]
-name = "web1_443"
-type = "udp"
-localIP = "127.0.0.1"
-localPort = 443
-remotePort = 14443
+localIP = "192.168.1.3"
+localPort = 22
+remotePort = 22222

@@ -12,9 +12,9 @@ Font="\033[0m"
 # variable
 WORK_PATH=$(dirname $(readlink -f $0))
 FRP_NAME=frpc
-FRP_VERSION=0.54.0
+FRP_VERSION=0.55.1
 FRP_PATH=/usr/local/frp
-PROXY_URL="https://ghproxy.com/"
+PROXY_URL="https://mirror.ghproxy.com/"
 
 # check frpc
 if [ -f "/usr/local/frp/${FRP_NAME}" ] || [ -f "/usr/local/frp/${FRP_NAME}.toml" ] || [ -f "/lib/systemd/system/${FRP_NAME}.service" ];then
@@ -66,31 +66,34 @@ mkdir -p ${FRP_PATH}
 mv ${FILE_NAME}/${FRP_NAME} ${FRP_PATH}
 
 # configure frpc.toml
+RADOM_NAME=$(cat /dev/urandom | head -n 10 | md5sum | head -c 8)
 cat >${FRP_PATH}/${FRP_NAME}.toml <<EOF
-serverAddr = "1.2.3.4"
+serverAddr = "frp.freefrp.net"
 serverPort = 7000
 auth.method = "token"
-auth.token = "123456"
-transport.poolCount = 200
-transport.tcpMux = true
-transport.tcpMuxKeepaliveInterval = 60
-transport.protocol = "tcp"
-transport.tls.enable = false
-udpPacketSize = 1500
-
+auth.token = "freefrp.net"
 
 [[proxies]]
-name = "web1_443"
+name = "web1_${RADOM_NAME}"
+type = "http"
+localIP = "192.168.1.2"
+localPort = 5000
+customDomains = ["nas.yourdomain.com"]
+
+[[proxies]]
+name = "web2_${RADOM_NAME}"
+type = "https"
+localIP = "192.168.1.2"
+localPort = 5001
+customDomains = ["nas.yourdomain.com"]
+
+[[proxies]]
+name = "tcp1_${RADOM_NAME}"
 type = "tcp"
-localIP = "127.0.0.1"
-localPort = 443
-remotePort = 14443
-[[proxies]]
-name = "web1_443"
-type = "udp"
-localIP = "127.0.0.1"
-localPort = 443
-remotePort = 14443
+localIP = "192.168.1.3"
+localPort = 22
+remotePort = 22222
+
 EOF
 
 # clean
