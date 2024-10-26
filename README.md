@@ -65,6 +65,8 @@ wget https://hw-sg.sdcom-ghproxy.us.kg/https://raw.githubusercontent.com/stilles
 
 **git clone** 本仓库,并正确配置 **frpc.toml** 文件.
 ```shell
+git clone https://github.com/stilleshan/frpc
+# 原仓库镜像
 git clone https://cnb.cool/ChuangYiLLC/Tech/frpc-shell
 # git clone 本仓库镜像
 git clone https://hw-sg.sdcom-ghproxy.us.kg/https://github.com/stilleshan/frpc
