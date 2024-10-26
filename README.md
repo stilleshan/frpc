@@ -1,4 +1,5 @@
 # frpc
+源项目地址: [stilleshan/frpc](https://github.com/stilleshan/frpc)
 ## 项目简介
 基于 [fatedier/frp](https://github.com/fatedier/frp) 原版 frp 内网穿透客户端 frpc 的一键安装卸载脚本和 docker 镜像.支持群晖NAS,Linux 服务器和 docker 等多种环境安装部署.
 
@@ -7,6 +8,7 @@
 > *docker image support for X86 and ARM*
 
 ## 更新
+- **2024-10-26** 更新国内cnb镜像
 - **2024-03-03** 更新到新版本,支持 toml 配置文件.
 - **2021-05-31** 更新国内镜像方便使用
 - **2021-05-31** 目前 X86 群晖 DMS 7.0 可直接使用 Linux 版本脚本,已实测.由于没有 ARM 版可尝试,请自行尝试.
@@ -35,8 +37,10 @@
 安装
 ```shell
 wget https://raw.githubusercontent.com/stilleshan/frpc/master/frpc_linux_install.sh && chmod +x frpc_linux_install.sh && ./frpc_linux_install.sh
-# 以下为国内镜像
-wget https://github.ioiox.com/stilleshan/frpc/raw/branch/master/frpc_linux_install.sh && chmod +x frpc_linux_install.sh && ./frpc_linux_install.sh
+# cnb镜像
+wget https://cnb.cool/ChuangYiLLC/Tech/frpc-shell/-/git/raw/master/frpc_linux_install.sh && chmod +x frpc_linux_install.sh && ./frpc_linux_install.sh
+# 以下为自建GitHub镜像
+wget https://hw-sg.sdcom-ghproxy.us.kg/https://raw.githubusercontent.com/stilleshan/frpc/master/frpc_linux_install.sh && chmod +x frpc_linux_install.sh && ./frpc_linux_install.sh
 ```
 
 使用
@@ -50,8 +54,10 @@ sudo systemctl restart frpc
 卸载
 ```shell
 wget https://raw.githubusercontent.com/stilleshan/frpc/master/frpc_linux_uninstall.sh && chmod +x frpc_linux_uninstall.sh && ./frpc_linux_uninstall.sh
-# 以下为国内镜像
-wget https://github.ioiox.com/stilleshan/frpc/raw/branch/master/frpc_linux_uninstall.sh && chmod +x frpc_linux_uninstall.sh && ./frpc_linux_uninstall.sh
+# cnb镜像
+wget https://cnb.cool/ChuangYiLLC/Tech/frpc-shell/-/git/raw/master/frpc_linux_uninstall.sh && chmod +x frpc_linux_uninstall.sh && ./frpc_linux_uninstall.sh
+# 以下为自建GitHub镜像
+wget https://hw-sg.sdcom-ghproxy.us.kg/https://raw.githubusercontent.com/stilleshan/frpc/master/frpc_linux_uninstall.sh && chmod +x frpc_linux_uninstall.sh && ./frpc_linux_uninstall.sh
 ```
 
 ### 4. Linux 服务器 docker 安装
@@ -59,12 +65,11 @@ wget https://github.ioiox.com/stilleshan/frpc/raw/branch/master/frpc_linux_unins
 
 **git clone** 本仓库,并正确配置 **frpc.toml** 文件.
 ```shell
-git clone https://github.com/stilleshan/frpc
+git clone https://cnb.cool/ChuangYiLLC/Tech/frpc-shell
 # git clone 本仓库镜像
-git clone https://github.ioiox.com/stilleshan/frpc
-# 国内镜像
-vi /root/frpc/frpc.toml
+git clone https://hw-sg.sdcom-ghproxy.us.kg/https://github.com/stilleshan/frpc
 # 配置 frpc.toml 文件
+vi /root/frpc/frpc.toml
 ```
 
 执行以下命令启动服务
