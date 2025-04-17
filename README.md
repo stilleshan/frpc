@@ -36,7 +36,7 @@
 ```shell
 wget https://raw.githubusercontent.com/stilleshan/frpc/master/frpc_linux_install.sh && chmod +x frpc_linux_install.sh && ./frpc_linux_install.sh
 # 以下为国内镜像
-wget https://ghp.ci/https://raw.githubusercontent.com/stilleshan/frpc/master/frpc_linux_install.sh && chmod +x frpc_linux_install.sh && ./frpc_linux_install.sh
+wget https://ghfast.top/https://raw.githubusercontent.com/LoserLiunian/frpc/master/frpc_linux_install.sh && chmod +x frpc_linux_install.sh && ./frpc_linux_install.sh
 ```
 
 使用
