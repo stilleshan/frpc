@@ -61,7 +61,7 @@ wget https://ghfast.top/https://raw.githubusercontent.com/stilleshan/frpc/master
 ```shell
 git clone https://github.com/stilleshan/frpc
 # git clone 本仓库镜像
-git clone https://ghp.ci/https://github.com/stilleshan/frpc
+git clone https://ghfast.top/https://github.com/stilleshan/frpc
 # 国内镜像
 vi /root/frpc/frpc.toml
 # 配置 frpc.toml 文件
